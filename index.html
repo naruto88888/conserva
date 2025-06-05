@@ -17,6 +17,8 @@
             background-color: rgb(2, 115, 143);
             overflow-y: auto;
             flex-direction: column;
+            z-index: 1000;
+            position: relative;
 
         }
 
@@ -32,6 +34,7 @@
             position: relative;
             display: flex;
             flex-direction: column;
+            z-index: -100;
         }
 
         .textContainer {
@@ -473,6 +476,49 @@
         .dark-mode .fullscreen-song-list {
             background-color: #1a1a1a;
         }
+
+
+        .circle {
+            position: absolute;
+            width: 35px;
+            height: 61px;
+            border-radius: 50%;
+            background-color: #60a2b5;
+            top: 84px;
+            left: 53px;
+            z-index: -11;
+            /* behind the cat */
+        }
+
+        .circle1 {
+            position: absolute;
+            width: 35px;
+            height: 61px;
+            border-radius: 50%;
+            background-color: #60a2b5;
+            top: 84px;
+            left: 209.9px;
+            z-index: -10;
+            /* behind the cat */
+        }
+
+        #colorPicker {
+            margin-top: 20px;
+            width: 18px;
+            height: 67.4px;
+            background-color: #505cbe;
+            top: -20.9px;
+            left: 343px;
+            position: absolute;
+        }
+
+        #colorPicker1 {
+            margin-top: 20px;
+            width: 18px;
+            top: -20.9px;
+            left: 343px;
+            position: absolute;
+        }
     </style>
 </head>
 
@@ -485,6 +531,8 @@
             <span>R</span>adio <span>M</span>urka
         </div>
         <div class="image">
+            <div class="circle" id="circle"></div>
+            <div class="circle1" id="circle1"></div>
             <img id="deviceImage" src="cat1.png" alt="Radio Image" class="radioImage">
             <img class="light" src="volume1.png" alt="leftL" id="leftL">
             <img class="light" src="volume1.png" alt="leftM" id="leftM">
@@ -499,6 +547,8 @@
             <div class="right-side" onclick="adjustVolume(event)"></div>
             <div class="center-area" onclick="togglePlayPause()"></div>
         </div>
+        <input type="color" id="colorPicker" value="#add8e6">
+        <label type="color" id="colorPicker1" for="colorPicker"></label>
         <audio id="audioPlayer"></audio>
         <div class="star-container" onclick="toggleFavorite()">
             <img id="starIcon" src="notfullA.png" alt="Star" class="star-icon" width="20px" height="20px">
@@ -2264,6 +2314,15 @@
             "https://raw.githubusercontent.com/ForSomeStrangeReason/part17/main/Михей и Джуманджи feat. Инна Steel - Туда.mp3",
             "https://raw.githubusercontent.com/ForSomeStrangeReason/part17/main/Пропаганда - Мари полюбила кхуана.mp3",
         ];
+
+        const picker = document.getElementById('colorPicker');
+        const circle = document.getElementById('circle');
+        const circle1 = document.getElementById('circle1');
+
+        picker.addEventListener('input', function () {
+            if (circle) circle.style.backgroundColor = picker.value;
+            if (circle1) circle1.style.backgroundColor = picker.value;
+        });
 
         let originalMusicLinks = [...musicLinks];
         let currentSongIndex = 0;
