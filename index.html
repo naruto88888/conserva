@@ -551,6 +551,16 @@
             position: absolute;
         }
 
+        #colorPickerSS {
+            margin-top: 20px;
+            width: 18px;
+            height: 67.4px;
+            background-color: #505cbe;
+            top: -20.9px;
+            left: 395px;
+            position: absolute;
+        }
+
         #speakers {
             position: absolute;
             width: 300px;
@@ -589,6 +599,7 @@
             <div class="right-side" onclick="adjustVolume(event)"></div>
             <div class="center-area" onclick="togglePlayPause()"></div>
         </div>
+        <input type="color" id="colorPickerSS" value="#add8e6">
         <input type="color" id="colorPickerS" value="#add8e6">
         <input type="color" id="colorPickers" value="#add8e6">
         <input type="color" id="colorPicker" value="#add8e6">
@@ -2380,6 +2391,12 @@
 
         picker11.addEventListener('input', function () {
             if (radioContainer) radioContainer.style.backgroundColor = picker11.value;
+        });
+
+        const picker111 = document.getElementById('colorPickerSS');
+
+        picker111.addEventListener('input', function () {
+            document.body.style.backgroundColor = picker111.value;
         });
 
         let originalMusicLinks = [...musicLinks];
