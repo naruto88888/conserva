@@ -337,14 +337,14 @@
         }
 
         #leftM {
-            top: 50%;
+            top: 47%;
             left: 10px;
             transform: translateY(-50%) scaleX(-1) rotate(-20deg);
             width: 30px;
         }
 
         #leftS {
-            bottom: 7%;
+            bottom: 12%;
             left: 12px;
             transform: scaleX(-1) rotate(-20deg);
             width: 20px;
@@ -358,14 +358,14 @@
         }
 
         #rightM {
-            top: 50%;
+            top: 47%;
             right: 10px;
             transform: translateY(-50%) rotate(-20deg);
             width: 30px;
         }
 
         #rightS {
-            bottom: 7%;
+            bottom: 12%;
             right: 12px;
             transform: rotate(-20deg);
             width: 20px;
@@ -525,7 +525,7 @@
             width: 300px;
             height: 300px;
             border-radius: 15px;
-            background-color: #60a2b5;
+            background-color: #5995a9;
             top: 0px;
             left: -0.1px;
             z-index: -15;
@@ -539,6 +539,15 @@
             top: -20.9px;
             left: 365px;
             position: absolute;
+        }
+
+        #speakers {
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            top: 0px;
+            left: -0.1px;
+            z-index: -15;
         }
     </style>
 </head>
@@ -555,6 +564,7 @@
             <div class="circle" id="circle"></div>
             <div class="circle1" id="circle1"></div>
             <div class="cquare" id="cquare"></div>
+            <img class="lights" src="speakers.png" alt="Speakers" id="speakers">
             <img id="deviceImage" src="cat1.png" alt="Radio Image" class="radioImage">
             <img class="light" src="volume1.png" alt="leftL" id="leftL">
             <img class="light" src="volume1.png" alt="leftM" id="leftM">
