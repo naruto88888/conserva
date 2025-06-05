@@ -483,7 +483,6 @@
             width: 35px;
             height: 61px;
             border-radius: 50%;
-            background-color: #60a2b5;
             top: 84px;
             left: 53px;
             z-index: -11;
@@ -495,7 +494,6 @@
             width: 35px;
             height: 61px;
             border-radius: 50%;
-            background-color: #60a2b5;
             top: 84px;
             left: 209.9px;
             z-index: -10;
@@ -569,6 +567,42 @@
             left: -0.1px;
             z-index: -15;
         }
+
+        #resetBtn {
+            margin-left: 265.1px;
+            padding: 8px 1px;
+            left: 75px;
+            position: absolute;
+            top: 69px;
+            width: 25px;
+        }
+
+        #resetBtn1 {
+            margin-left: 265.1px;
+            padding: 8px 1px;
+            left: 99px;
+            position: absolute;
+            top: 69px;
+            width: 25px;
+        }
+
+        #resetBtn2 {
+            margin-left: 265.1px;
+            padding: 8px 1px;
+            left: 123px;
+            position: absolute;
+            top: 69px;
+            width: 25px;
+        }
+
+        #resetBtn3 {
+            margin-left: 265.1px;
+            padding: 8px 1px;
+            left: 143px;
+            position: absolute;
+            top: 69px;
+            width: 25px;
+        }
     </style>
 </head>
 
@@ -599,6 +633,10 @@
             <div class="right-side" onclick="adjustVolume(event)"></div>
             <div class="center-area" onclick="togglePlayPause()"></div>
         </div>
+        <button id="resetBtn3"></button>
+        <button id="resetBtn2"></button>
+        <button id="resetBtn1"></button>
+        <button id="resetBtn"></button>
         <input type="color" id="colorPickerSS" value="#add8e6">
         <input type="color" id="colorPickerS" value="#add8e6">
         <input type="color" id="colorPickers" value="#add8e6">
@@ -2373,30 +2411,63 @@
         const picker = document.getElementById('colorPicker');
         const circle = document.getElementById('circle');
         const circle1 = document.getElementById('circle1');
+        const resetBtn = document.getElementById('resetBtn');
+
+        const initialColor = '#5a98aa'; // save the initial color
 
         picker.addEventListener('input', function () {
             if (circle) circle.style.backgroundColor = picker.value;
             if (circle1) circle1.style.backgroundColor = picker.value;
         });
 
+        resetBtn.addEventListener('click', function () {
+            if (circle) circle.style.backgroundColor = initialColor;
+            if (circle1) circle1.style.backgroundColor = initialColor;
+            picker.value = initialColor;
+        });
+
         const picker1 = document.getElementById('colorPickers');
         const cquare = document.getElementById('cquare');
+        const resetBtn1 = document.getElementById('resetBtn1');
+
+        const initialColor1 = '#5995a9'; // save the initial color
 
         picker1.addEventListener('input', function () {
             if (cquare) cquare.style.backgroundColor = picker1.value;
         });
 
+        resetBtn1.addEventListener('click', function () {
+            if (cquare) cquare.style.backgroundColor = initialColor1;
+            picker1.value = initialColor1;
+        });
+
         const picker11 = document.getElementById('colorPickerS');
         const radioContainer = document.getElementById('radioContainer');
+        const resetBtn2 = document.getElementById('resetBtn2');
+
+        const initialColor2 = '#fff1d2'; // save the initial color
 
         picker11.addEventListener('input', function () {
             if (radioContainer) radioContainer.style.backgroundColor = picker11.value;
         });
 
+        resetBtn2.addEventListener('click', function () {
+            if (radioContainer) radioContainer.style.backgroundColor = initialColor2;
+            picker11.value = initialColor2;
+        });
+
         const picker111 = document.getElementById('colorPickerSS');
+        const resetBtn3 = document.getElementById('resetBtn3');
+
+        const initialColor3 = '#02738f'; // save the initial color
 
         picker111.addEventListener('input', function () {
             document.body.style.backgroundColor = picker111.value;
+        });
+
+        resetBtn3.addEventListener('click', function () {
+            document.body.style.backgroundColor = initialColor3;
+            picker111.value = initialColor3;
         });
 
         let originalMusicLinks = [...musicLinks];
