@@ -541,6 +541,16 @@
             position: absolute;
         }
 
+        #colorPickerS {
+            margin-top: 20px;
+            width: 18px;
+            height: 67.4px;
+            background-color: #505cbe;
+            top: -20.9px;
+            left: 380px;
+            position: absolute;
+        }
+
         #speakers {
             position: absolute;
             width: 300px;
@@ -556,7 +566,7 @@
     <div class="darkMode" onclick="toggleDarkMode()">
         <img id="themeIcon" src="moon.png" alt="Theme Toggle" width="25px" height="25px">
     </div>
-    <div class="radioContainer">
+    <div class="radioContainer" id="radioContainer">
         <div class="radioName" onclick="playRandomSong()">
             <span>R</span>adio <span>M</span>urka
         </div>
@@ -579,6 +589,7 @@
             <div class="right-side" onclick="adjustVolume(event)"></div>
             <div class="center-area" onclick="togglePlayPause()"></div>
         </div>
+        <input type="color" id="colorPickerS" value="#add8e6">
         <input type="color" id="colorPickers" value="#add8e6">
         <input type="color" id="colorPicker" value="#add8e6">
         <label type="color" id="colorPicker1" for="colorPicker"></label>
@@ -2362,6 +2373,13 @@
 
         picker1.addEventListener('input', function () {
             if (cquare) cquare.style.backgroundColor = picker1.value;
+        });
+
+        const picker11 = document.getElementById('colorPickerS');
+        const radioContainer = document.getElementById('radioContainer');
+
+        picker11.addEventListener('input', function () {
+            if (radioContainer) radioContainer.style.backgroundColor = picker11.value;
         });
 
         let originalMusicLinks = [...musicLinks];
