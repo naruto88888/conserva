@@ -519,6 +519,27 @@
             left: 343px;
             position: absolute;
         }
+
+        #cquare {
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            border-radius: 15px;
+            background-color: #60a2b5;
+            top: 0px;
+            left: -0.1px;
+            z-index: -15;
+        }
+
+        #colorPickers {
+            margin-top: 20px;
+            width: 18px;
+            height: 67.4px;
+            background-color: #505cbe;
+            top: -20.9px;
+            left: 365px;
+            position: absolute;
+        }
     </style>
 </head>
 
@@ -533,6 +554,7 @@
         <div class="image">
             <div class="circle" id="circle"></div>
             <div class="circle1" id="circle1"></div>
+            <div class="cquare" id="cquare"></div>
             <img id="deviceImage" src="cat1.png" alt="Radio Image" class="radioImage">
             <img class="light" src="volume1.png" alt="leftL" id="leftL">
             <img class="light" src="volume1.png" alt="leftM" id="leftM">
@@ -547,6 +569,7 @@
             <div class="right-side" onclick="adjustVolume(event)"></div>
             <div class="center-area" onclick="togglePlayPause()"></div>
         </div>
+        <input type="color" id="colorPickers" value="#add8e6">
         <input type="color" id="colorPicker" value="#add8e6">
         <label type="color" id="colorPicker1" for="colorPicker"></label>
         <audio id="audioPlayer"></audio>
@@ -2322,6 +2345,13 @@
         picker.addEventListener('input', function () {
             if (circle) circle.style.backgroundColor = picker.value;
             if (circle1) circle1.style.backgroundColor = picker.value;
+        });
+
+        const picker1 = document.getElementById('colorPickers');
+        const cquare = document.getElementById('cquare');
+
+        picker1.addEventListener('input', function () {
+            if (cquare) cquare.style.backgroundColor = picker1.value;
         });
 
         let originalMusicLinks = [...musicLinks];
